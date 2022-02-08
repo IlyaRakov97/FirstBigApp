@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		446E05E5B784336800747F06 /* Pods_FirstBigApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEAC9E656868CA6E0FFE3E /* Pods_FirstBigApp.framework */; };
+		DE7AF06127B25F8400834E17 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7AF06027B25F8300834E17 /* ScheduleTableViewCell.swift */; };
 		DEB8219927B0E05800B5D68D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB8219827B0E05800B5D68D /* AppDelegate.swift */; };
 		DEB8219B27B0E05800B5D68D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB8219A27B0E05800B5D68D /* SceneDelegate.swift */; };
 		DEB8219D27B0E05800B5D68D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB8219C27B0E05800B5D68D /* MainTabBarController.swift */; };
@@ -22,6 +23,7 @@
 		04FEAC9E656868CA6E0FFE3E /* Pods_FirstBigApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirstBigApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D78A4A17E04C28AB5028D92 /* Pods-FirstBigApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstBigApp.debug.xcconfig"; path = "Target Support Files/Pods-FirstBigApp/Pods-FirstBigApp.debug.xcconfig"; sourceTree = "<group>"; };
 		69AFD41BACFAB78A8F1D768A /* Pods-FirstBigApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstBigApp.release.xcconfig"; path = "Target Support Files/Pods-FirstBigApp/Pods-FirstBigApp.release.xcconfig"; sourceTree = "<group>"; };
+		DE7AF06027B25F8300834E17 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		DEB8219527B0E05800B5D68D /* FirstBigApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstBigApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB8219827B0E05800B5D68D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEB8219A27B0E05800B5D68D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +54,6 @@
 				5D78A4A17E04C28AB5028D92 /* Pods-FirstBigApp.debug.xcconfig */,
 				69AFD41BACFAB78A8F1D768A /* Pods-FirstBigApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -62,6 +63,22 @@
 				04FEAC9E656868CA6E0FFE3E /* Pods_FirstBigApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE7AF05E27B25EDD00834E17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE7AF05F27B25F1D00834E17 /* Cell */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE7AF05F27B25F1D00834E17 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE7AF06027B25F8300834E17 /* ScheduleTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DEB8218C27B0E05800B5D68D = {
@@ -85,6 +102,7 @@
 		DEB8219727B0E05800B5D68D /* FirstBigApp */ = {
 			isa = PBXGroup;
 			children = (
+				DE7AF05E27B25EDD00834E17 /* Model */,
 				DEB821AC27B0E31E00B5D68D /* Application */,
 				DEB821AD27B0E34000B5D68D /* Controllers */,
 				DEB821AE27B0E38900B5D68D /* Resources */,
@@ -237,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB8219D27B0E05800B5D68D /* MainTabBarController.swift in Sources */,
+				DE7AF06127B25F8400834E17 /* ScheduleTableViewCell.swift in Sources */,
 				DEB8219927B0E05800B5D68D /* AppDelegate.swift in Sources */,
 				DEB821B227B0EBFE00B5D68D /* TasksViewController.swift in Sources */,
 				DEB8219B27B0E05800B5D68D /* SceneDelegate.swift in Sources */,

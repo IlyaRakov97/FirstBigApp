@@ -27,13 +27,18 @@ class ScheduleViewController: UIViewController {
         button.setTitle("Open calendar", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Avenir Next Demi Bold", size: 14)
-        
-        
-        
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let idScheduleCell = "idScheduleCell"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +48,17 @@ class ScheduleViewController: UIViewController {
         
         calendar.delegate = self
         calendar.dataSource = self
-        
         calendar.scope = .week
         
-        showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: idScheduleCell)
         
         setConstraints()
         swipeAction()
+        
+        showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
+
         
     }
     
@@ -88,7 +97,23 @@ class ScheduleViewController: UIViewController {
             break
         }
     }
+}
+
+
+//MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate{
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idScheduleCell, for: indexPath) as! ScheduleTableViewCell
+        
+        return cell
+    }
+
 }
 
 
@@ -129,6 +154,14 @@ extension ScheduleViewController{
             showHideButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             showHideButton.widthAnchor.constraint(equalToConstant: 100),
             showHideButton.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
     
