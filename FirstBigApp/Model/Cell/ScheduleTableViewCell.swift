@@ -10,122 +10,16 @@ import UIKit
 class ScheduleTableViewCell: UITableViewCell {
     
     
-    let lessonName: UILabel = {
-        let label = UILabel()
-        label.text = "Программирование"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir Next Demi Bold", size: 20)
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
-        
-    }()
-    
-    let teachersName: UILabel = {
-        let label = UILabel()
-        label.text = "Антонов Антон Антонович"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir Next", size: 20)
-        label.textAlignment = .right
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
-    
-    let lessonTime: UILabel = {
-        let label = UILabel()
-        label.text = "08.00"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir Next", size: 20)
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
-    
-    let typeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Тип"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir next", size: 14)
-        label.textAlignment = .right
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
-    
-    let lessonType: UILabel = {
-        let label = UILabel()
-        label.text = "Урок"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir next", size: 14)
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
-    
-    let buildingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Корпус"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir next", size: 14)
-        label.textAlignment = .right
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
-    
-    let lessonBuilding: UILabel = {
-        let label = UILabel()
-        label.text = "1"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir Тext Demi Bold", size: 14)
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .black
-        
-        return label
-    }()
-    
-    let audLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Аудитория"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir Next", size: 14)
-        label.textAlignment = .right
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
-    
-    let lessonAud: UILabel = {
-        let label = UILabel()
-        label.text = "101"
-        label.textColor = .black
-        label.font = UIFont(name: "Avenir Next Demi Bold", size: 14)
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        
-        return label
-    }()
+    let lessonsName = UILabel(text: "Програмирование", font: .avenirNextDemiBold20())
+    let teachersName = UILabel(text: "Антонов Антон Антонович", font: .avenirNext20(), alingment: .right)
+    let lessonTime = UILabel(text: "08.00", font: .avenirNextDemiBold20())
+    let typeLabel = UILabel(text: "Тип", font: .avenirNext14(), alingment: .right)
+    let lessonType = UILabel(text: "Урок", font: .avenirNextDemiBold14())
+    let buildingLabel = UILabel(text: "Корпус", font: .avenirNext14(), alingment: .right)
+    let lessonBuilding = UILabel(text: "1", font: .avenirNextDemiBold14())
+    let audLabel = UILabel(text: "Аудитория", font: .avenirNext14(), alingment: .right)
+    let lessonAud = UILabel(text: "101", font: .avenirNextDemiBold14())
+
         
         
     
@@ -133,10 +27,9 @@ class ScheduleTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {[self] in
             setConstraints()
 
-        }
+        
         
     }
     
@@ -146,7 +39,7 @@ class ScheduleTableViewCell: UITableViewCell {
     
     func setConstraints(){
         
-        let topStackView = UIStackView(arrangedSubviews: [lessonName, teachersName], axis: .horizontal, spasing: 10, distriburion: .fillEqually)
+        let topStackView = UIStackView(arrangedSubviews: [lessonTime, teachersName], axis: .horizontal, spasing: 10, distriburion: .fillEqually)
         
         
         self.addSubview(topStackView)
@@ -161,9 +54,9 @@ class ScheduleTableViewCell: UITableViewCell {
         self.addSubview(lessonTime)
         NSLayoutConstraint.activate([
             lessonTime.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            lessonName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            lessonName.widthAnchor.constraint(equalToConstant: 100),
-            lessonName.heightAnchor.constraint(equalToConstant: 25)
+            lessonTime.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            lessonTime.widthAnchor.constraint(equalToConstant: 100),
+            lessonTime.heightAnchor.constraint(equalToConstant: 25)
         ])
         
         

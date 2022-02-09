@@ -105,16 +105,24 @@ class ScheduleViewController: UIViewController {
 extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idScheduleCell, for: indexPath) as! ScheduleTableViewCell
+        
+        switch indexPath.row {
+        case 0: cell.backgroundColor = .brown
+        case 1: cell.backgroundColor = .green
+        default:
+            cell.backgroundColor = .red
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        90
+        80
+        
     }
 
 }
