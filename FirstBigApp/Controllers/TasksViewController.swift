@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class TaskViewController: UIViewController{
+class TasksViewController: UIViewController{
     
     var calendarHeightConstraint: NSLayoutConstraint!
     
@@ -19,6 +19,8 @@ class TaskViewController: UIViewController{
         return calendar
                 
     }()
+    
+    
     
     let showHideButton: UIButton = {
         
@@ -34,6 +36,16 @@ class TaskViewController: UIViewController{
         return button
     }()
     
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.bounces = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let idTasksCell = "idTasksCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,11 +57,14 @@ class TaskViewController: UIViewController{
         
         calendar.scope = .week
         
-        showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TasksTableVIewCell.self, forCellReuseIdentifier: idTasksCell)
+                
         setConstraints()
         swipeAction()
         
+        showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
     }
     
     @objc func showHideButtonTapped(){
@@ -60,10 +75,10 @@ class TaskViewController: UIViewController{
         }else {
             calendar.setScope(.week, animated: true)
             showHideButton.setTitle("Open calendar", for: .normal)
-            
         }
-        
     }
+    
+    
     
     //MARK: - SwipeGestorRecognizer
     
@@ -91,10 +106,42 @@ class TaskViewController: UIViewController{
 }
 
 
+//MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension TasksViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idTasksCell, for: indexPath) as! TasksTableVIewCell
+        cell.cellTaskDeligate = self
+        cell.index = indexPath
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+        
+    }
+
+}
+
+//MARK: - PressReadyTaskButtonProtocol
+        
+extension TasksViewController: PressReadyTaskButtonProtocol{
+    func readyButtonTapped(indexPath: IndexPath) {
+        print("TAP")
+    }
+    
+        
+}
+
 //MARK: - FSCalendarDataSource, FSCalendarDelegate
 
 
-extension TaskViewController: FSCalendarDataSource, FSCalendarDelegate{
+extension TasksViewController: FSCalendarDataSource, FSCalendarDelegate{
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         calendarHeightConstraint.constant = bounds.height
@@ -108,7 +155,7 @@ extension TaskViewController: FSCalendarDataSource, FSCalendarDelegate{
 
 //MARK: - SetConstraints
 
-extension TaskViewController{
+extension TasksViewController{
     
     func setConstraints() {
         view.addSubview(calendar)
@@ -128,6 +175,13 @@ extension TaskViewController{
             showHideButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             showHideButton.widthAnchor.constraint(equalToConstant: 100),
             showHideButton.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
     

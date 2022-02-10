@@ -19,17 +19,13 @@ class ScheduleTableViewCell: UITableViewCell {
     let lessonBuilding = UILabel(text: "1", font: .avenirNextDemiBold14())
     let audLabel = UILabel(text: "Аудитория", font: .avenirNext14(), alingment: .right)
     let lessonAud = UILabel(text: "101", font: .avenirNextDemiBold14())
-
-        
-        
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
             setConstraints()
 
-        
+        self.selectionStyle = .none
         
     }
     

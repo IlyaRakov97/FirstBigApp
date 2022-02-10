@@ -18,6 +18,8 @@
 		DEB821B027B0EBD900B5D68D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB821AF27B0EBD900B5D68D /* ScheduleViewController.swift */; };
 		DEB821B227B0EBFE00B5D68D /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB821B127B0EBFE00B5D68D /* TasksViewController.swift */; };
 		DEB821B427B0EC3F00B5D68D /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB821B327B0EC3F00B5D68D /* ContactsViewController.swift */; };
+		DEBA496127B4DE0D00C7483C /* TasksTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBA496027B4DE0D00C7483C /* TasksTableVIewCell.swift */; };
+		DEBA496427B4ECBA00C7483C /* PressButtonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBA496327B4ECBA00C7483C /* PressButtonProtocols.swift */; };
 		DEC5842827B3FAB600C2F7E1 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5842727B3FAB600C2F7E1 /* UILabel.swift */; };
 		DEC5842A27B4030200C2F7E1 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5842927B4030200C2F7E1 /* UIFont.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		DEB821AF27B0EBD900B5D68D /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		DEB821B127B0EBFE00B5D68D /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		DEB821B327B0EC3F00B5D68D /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		DEBA496027B4DE0D00C7483C /* TasksTableVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableVIewCell.swift; sourceTree = "<group>"; };
+		DEBA496327B4ECBA00C7483C /* PressButtonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressButtonProtocols.swift; sourceTree = "<group>"; };
 		DEC5842727B3FAB600C2F7E1 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		DEC5842927B4030200C2F7E1 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				DE7AF06027B25F8300834E17 /* ScheduleTableViewCell.swift */,
+				DEBA496027B4DE0D00C7483C /* TasksTableVIewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				DE7AF05E27B25EDD00834E17 /* Model */,
 				DEB821AC27B0E31E00B5D68D /* Application */,
 				DEB821AD27B0E34000B5D68D /* Controllers */,
+				DEBA496227B4EC4B00C7483C /* Protocols */,
 				DEB821AE27B0E38900B5D68D /* Resources */,
 			);
 			path = FirstBigApp;
@@ -163,6 +169,14 @@
 				DEB821A627B0E05D00B5D68D /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DEBA496227B4EC4B00C7483C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DEBA496327B4ECBA00C7483C /* PressButtonProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,9 +300,11 @@
 				DEC5842827B3FAB600C2F7E1 /* UILabel.swift in Sources */,
 				DEB821B227B0EBFE00B5D68D /* TasksViewController.swift in Sources */,
 				DEB8219B27B0E05800B5D68D /* SceneDelegate.swift in Sources */,
+				DEBA496127B4DE0D00C7483C /* TasksTableVIewCell.swift in Sources */,
 				DEB821B027B0EBD900B5D68D /* ScheduleViewController.swift in Sources */,
 				DEC5842A27B4030200C2F7E1 /* UIFont.swift in Sources */,
 				DEB821B427B0EC3F00B5D68D /* ContactsViewController.swift in Sources */,
+				DEBA496427B4ECBA00C7483C /* PressButtonProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
