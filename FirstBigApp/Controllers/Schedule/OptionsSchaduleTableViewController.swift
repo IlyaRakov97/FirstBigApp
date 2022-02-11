@@ -54,6 +54,7 @@ class OptionsSchaduleTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: idOptionsSchaduleHeader) as! HeaderOptionsScheduleTableViewCell
+        header.headerConfigure(section)
         return header
     }
     

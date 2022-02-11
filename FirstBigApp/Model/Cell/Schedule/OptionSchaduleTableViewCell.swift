@@ -20,7 +20,9 @@ class OptionSchaduleTableViewCell: UITableViewCell {
     
     let nameCellLabel: UILabel = {
         let label = UILabel()
+        label.text = "Cell"
         label.font = UIFont.systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
